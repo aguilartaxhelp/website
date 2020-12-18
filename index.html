@@ -34,25 +34,22 @@
             $inputs.each(function() {
                 values[this.name] = $(this).val()
             });
-            // axios({
-            //     method: 'post',
-            //     url: 'https://672qne3vjf.execute-api.us-west-2.amazonaws.com/dev/sendmail',
-            //     data: values,
-            //     headers: {"ContentType": "application/json", "Access-Control-Allow-Origin": "*"}
-            // }).then(function (response) {
-            //     alert(response.data)
-            // });
-
-            // TODO move to .then function
-            Swal.fire({
-                icon: 'success',
-                title: 'Your message has been sent',
-                showConfirmButton: false,
-                timer: 1500
-            })
-
-            // Always clear the form so the user can't continue to click submit
-            $('#contactForm')[0].reset();
+            axios({
+                method: 'post',
+                url: 'https://672qne3vjf.execute-api.us-west-2.amazonaws.com/dev/sendmail',
+                data: values,
+                headers: {"ContentType": "application/json", "Access-Control-Allow-Origin": "*"}
+            }).then(function (response) {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Your message has been sent',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+                // Always clear the form so the user can't continue to click submit
+                $('#contactForm')[0].reset();
+            });
+            
         }
     </script>
 
@@ -495,7 +492,7 @@
 
                 <address>
                     <strong>Email</strong><br>
-                    <a href="mailto:elnakisa@gmail.com">elnakisa@gmail.com</a>
+                    <a href="mailto:aanieves5.a@gmail.com">aanieves5.a@gmail.com</a>
                 </address>
             </div>
         </div>
