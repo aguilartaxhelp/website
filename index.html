@@ -25,6 +25,14 @@
     <script>
         // TODO should this be in external script? It's very simple (for now)
         function sendEmail() {
+            Swal.fire({
+                    title: "Sending...",
+                    text: "Your message is being sent",
+                    timer: 60000,
+                    showConfirmButton: false
+                })
+
+
             // get all the inputs into an array.
             var $inputs = $('#contactForm :input');
 
@@ -48,8 +56,16 @@
                 })
                 // Always clear the form so the user can't continue to click submit
                 $('#contactForm')[0].reset();
+            }).catch(function (error) {
+                console.log(error)
+                Swal.fire({
+                    icon: 'error',
+                    title: 'An error occurred. The system administrator has been notified.',
+                    showConfirmButton: false,
+                    timer: 8000
+                })
             });
-            
+
         }
     </script>
 
